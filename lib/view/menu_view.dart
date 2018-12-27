@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'package:makerthon2018/model/menu.dart';
 
+import 'package:makerthon2018/app_navigator.dart';
+
 class MenuView extends StatelessWidget {
-  @override
+    @override
   Widget build(BuildContext context) {
-    // make the listview page here
+    return new Scaffold(body: Container(
+      child: RaisedButton(onPressed: () => AppNavigator.of(context).submitOrder(BLACK_TEA)),
+    ),);
   }
 }

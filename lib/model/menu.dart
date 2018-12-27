@@ -2,13 +2,13 @@ import 'package:makerthon2018/model/video.dart';
 import 'package:makerthon2018/model/order.dart';
 
 // Drinks
-const COFFEE = const Video("assets/drinks/coffee.mp4");
-const TEA = const Video("assets/drinks/tea.mp4");
+const COFFEE = const Video("assets/coffee.mp4", "coffee");
+const TEA = const Video("assets/tea.mp4", "tea");
 
 // Type 
-const BLACK = const Video("assets/types/black.mp4");
-const C = const Video("assets/types/c.mp4");
-const MILK = const Video("assets/types/milk.mp4");
+const BLACK = const Video("assets/black.mp4", "black");
+const C = const Video("assets/c.mp4", "C");
+const MILK = const Video("assets/milk.mp4", "milk");
 
 // Menu
 
