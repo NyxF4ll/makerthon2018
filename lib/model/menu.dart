@@ -12,14 +12,12 @@ const MILK = const Video("assets/milk.mp4", "milk");
 
 // Menu
 
-const BLACK_COFFEE = const Order("Black Coffee",[COFFEE, BLACK] , []);
-const COFFEE_C = const Order("Coffee C",[COFFEE, C] , []);
-const COFFEE_MILK = const Order("Coffee Milk",[COFFEE, MILK] , []);
+const KOPI_O = const Order("Kopi O",[COFFEE, BLACK] , [], "assets/kopi-o.jpg");
+const KOPI_C = const Order("Kopi C",[COFFEE, C] , [], "assets/kopi-c.jpeg");
+const KOPI_STANDARD = const Order("Kopi",[COFFEE, MILK] , [], "assets/kopi.jpg");
 
-const BLACK_TEA = const Order("Black Tea",[TEA, BLACK] , []);
-const TEA_C = const Order("Tea C",[TEA, C] , []);
-const MILK_TEA = const Order("Milk Tea",[TEA, MILK] , []);
+const TEA_O = const Order("Tea O",[TEA, BLACK] , [], "assets/tea-o.jpg");
+const TEA_C = const Order("Tea C",[TEA, C] , [], "assets/tea-c.jpg");
+const TEA_STANDARD = const Order("Tea",[TEA, MILK] , [], "assets/tea.jpg");
 
-const MENU = [BLACK_COFFEE, COFFEE_C, COFFEE_MILK, BLACK_TEA, TEA_C, MILK_TEA];
-
-const MENUSTRING = ['Black Coffee', 'Coffee C', 'Coffee Milk', 'Black Tea', 'Tea C', 'Milk Tea']
+const MENU = [KOPI_STANDARD, KOPI_C, KOPI_O, TEA_STANDARD, TEA_C, TEA_O];
