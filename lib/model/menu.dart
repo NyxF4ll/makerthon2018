@@ -21,3 +21,5 @@ const TEA_C = const Order("Tea C",[TEA, C] , []);
 const MILK_TEA = const Order("Milk Tea",[TEA, MILK] , []);
 
 const MENU = [BLACK_COFFEE, COFFEE_C, COFFEE_MILK, BLACK_TEA, TEA_C, MILK_TEA];
+
+const MENUSTRING = ['Black Coffee', 'Coffee C', 'Coffee Milk', 'Black Tea', 'Tea C', 'Milk Tea']
