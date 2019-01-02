@@ -1,34 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:makerthon2018/model/menu.dart';
 import 'package:makerthon2018/app_navigator.dart';
-import 'dart:ui';
-
-// Widget build(BuildContext context) {
-//   return new Scaffold(
-//     body: new ListView.builder(
-//       itemCount: MENU == null ? 0 : MENU.length,
-//       itemBuilder: (BuildContext context, int index) {
-//         return new GestureDetector(
-//           onTap: () => AppNavigator.of(context).submitOrder(MENU[index]),
-//           child: new Column (
-//             children: <Widget>[
-//               new Image.asset('assets/image/image${index + 1}.jpg'),
-//               new Container(
-//                 child: new Text(MENUSTRING[index], style: new TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
-//               )
-//             ],
-//             ),
-//         );
-//       },
-//     ),
-//   );
-// }
-
-List<Widget> list = <Widget>[
-  ListTile(
-    title: Text('KOPI', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 100.0)),
-  )
-];
 
 class MenuView extends StatelessWidget {
   @override
@@ -60,7 +33,7 @@ class MenuView extends StatelessWidget {
           ]),
         onTap: () {
           print(MENU[index].name);
-          AppNavigator.of(context).submitOrder(MENU[index]);
+          AppNavigator.of(context).selectDrink(MENU[index]);
         })
       )
     );
