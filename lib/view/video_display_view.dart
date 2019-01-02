@@ -48,6 +48,9 @@ class _VideoDisplayViewState extends State<VideoDisplayView> {
       play();
     }
 
+    while (_playQueue.isNotEmpty && _playQueue.first.path == null) {
+      _playQueue.removeFirst();
+    }
     if (_playQueue.isEmpty) {
       setState(() {this._isNotPlaying = true;});
 
@@ -55,6 +58,7 @@ class _VideoDisplayViewState extends State<VideoDisplayView> {
     }
 
     _isNotPlaying = false;
+    
     _currentVideoDescription = _playQueue.first.name;
     _controller = _playQueue.removeFirst().controller;
     _controller.initialize().then((_) => setState(() {}));
@@ -82,7 +86,7 @@ class _VideoDisplayViewState extends State<VideoDisplayView> {
         onPressed: () => AppNavigator.of(context).returnToMenu(), 
         child: Icon(Icons.close, size: 50.0), backgroundColor: Colors.transparent, 
         foregroundColor: Colors.white,
-        ),
+      ),
       body: new Stack(children: <Widget>[
         Center(
           child: _controller.value.initialized ?
