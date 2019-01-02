@@ -28,18 +28,18 @@ const MENU = [KOPI_STANDARD, KOPI_C, KOPI_O, TEA_STANDARD, TEA_C, TEA_O];
 const NORMAL = const Modifier("Normal", "assets/", const Video(null, "Normal"));
 
 const HOT = const Modifier("Hot", "assets/", const Video("assets/plain.mp4", "Hot"));
-const ICED = const Modifier("Iced", "assets/", const Video("assets/plain.mp4", "Iced"));
+const ICED = const Modifier("Iced (Peng)", "assets/", const Video("assets/plain.mp4", "Iced (Peng)"));
 
 const TEMP = [HOT, ICED];
 
-const LESS_SWEET = const Modifier("Siew dai (less Sweet)", "assets/", const Video("assets/plain.mp4", "Siew dai (less Sweet)"));
-const MORE_SWEET = const Modifier("Ga dai (more sweet)", "assets/", const Video("assets/plain.mp4", "Ga dai (more sweet)"));
-const KOSONG = const Modifier("Kosong (no sugar)", "assets/", const Video("assets/plain.mp4", "Kosong (no sugar)"));
+const LESS_SWEET = const Modifier("Siew Dai (Less Sweet)", "assets/", const Video("assets/plain.mp4", "Siew Dai (Less Sweet)"));
+const MORE_SWEET = const Modifier("Ga Dai (More Sweet)", "assets/", const Video("assets/plain.mp4", "Ga Dai (More Sweet)"));
+const KOSONG = const Modifier("Kosong (No Sugar)", "assets/", const Video("assets/plain.mp4", "Kosong (No Sugar)"));
 
 const SWEETNESS = [NORMAL, LESS_SWEET, MORE_SWEET, KOSONG];
 
-const THICK = const Modifier("Gau (thicker brew)", "assets/plain.mp4", const Video("assets/plain.mp4", "Gau (thicker brew)"));
-const LIGHT = const Modifier("Po (lighter brew)", "assets/plain.mp4", const Video("assets/plain.mp4", "Po (lighter brew)"));
+const THICK = const Modifier("Gao (Thicker Brew)", "assets/plain.mp4", const Video("assets/plain.mp4", "Gao (Thicker Brew)"));
+const LIGHT = const Modifier("Poh (Lighter Brew)", "assets/plain.mp4", const Video("assets/plain.mp4", "Poh (Lighter Brew)"));
 
 const THICKNESS = [NORMAL, THICK, LIGHT];
 
