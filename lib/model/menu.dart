@@ -2,24 +2,25 @@ import 'package:makerthon2018/model/video.dart';
 import 'package:makerthon2018/model/order.dart';
 import 'package:makerthon2018/model/modifier.dart';
 
-// Drinks
-const COFFEE = const Video("assets/coffee.mp4", "Coffee");
-const TEA = const Video("assets/tea.mp4", "Tea");
+// Videos
+const VKOPI_O = const Video("assets/KopiO.mp4", "Kopi O");
+const VKOPI_C = const Video("assets/KopiC.mp4", "Kopi C");
+const VKOPI_STANDARD = Video("assets/Kopi.mp4", "Kopi");
 
-// Type 
-const BLACK = const Video("assets/black.mp4", "Black");
-const C = const Video("assets/c.mp4", "C");
-const MILK = const Video("assets/milk.mp4", "Milk");
+const VTEA_O = const Video("assets/TehO.mp4", "Teh O");
+const VTEA_C = const Video("assets/TehC.mp4", "Teh C");
+const VTEA_STANDARD = const Video("assets/Teh.mp4", "Teh");
+
 
 // Menu
 
-const KOPI_O = const Order("Kopi O",[COFFEE, BLACK] , [], "assets/kopi-o.jpg");
-const KOPI_C = const Order("Kopi C",[COFFEE, C] , [], "assets/kopi-c.jpeg");
-const KOPI_STANDARD = const Order("Kopi",[COFFEE] , [], "assets/kopi.jpg");
+const KOPI_O = const Order("Kopi O",[VKOPI_O] , [], "assets/kopi-o.jpg");
+const KOPI_C = const Order("Kopi C",[VKOPI_C] , [], "assets/kopi-c.jpeg");
+const KOPI_STANDARD = const Order("Kopi",[VKOPI_STANDARD] , [], "assets/kopi.jpg");
 
-const TEA_O = const Order("Tea O",[TEA, BLACK] , [], "assets/tea-o.jpg");
-const TEA_C = const Order("Tea C",[TEA, C] , [], "assets/tea-c.jpg");
-const TEA_STANDARD = const Order("Tea",[TEA] , [], "assets/tea.jpg");
+const TEA_O = const Order("Tea O",[VTEA_O] , [], "assets/tea-o.jpg");
+const TEA_C = const Order("Tea C",[VTEA_C] , [], "assets/tea-c.jpg");
+const TEA_STANDARD = const Order("Tea",[VTEA_STANDARD] , [], "assets/tea.jpg");
 
 const MENU = [KOPI_STANDARD, KOPI_C, KOPI_O, TEA_STANDARD, TEA_C, TEA_O];
 
@@ -27,19 +28,19 @@ const MENU = [KOPI_STANDARD, KOPI_C, KOPI_O, TEA_STANDARD, TEA_C, TEA_O];
 
 const NORMAL = const Modifier("Normal", "assets/", const Video(null, "Normal"));
 
-const HOT = const Modifier("Hot", "assets/", const Video("assets/plain.mp4", "Hot"));
-const ICED = const Modifier("Iced (Peng)", "assets/", const Video("assets/plain.mp4", "Iced (Peng)"));
+const HOT = const Modifier("Hot", "assets/", const Video("assets/Hot.mp4", "Hot"));
+const ICED = const Modifier("Iced (Peng)", "assets/", const Video("assets/Iced.mp4", "Iced (Peng)"));
 
 const TEMP = [HOT, ICED];
 
-const LESS_SWEET = const Modifier("Siew Dai (Less Sweet)", "assets/", const Video("assets/plain.mp4", "Siew Dai (Less Sweet)"));
-const MORE_SWEET = const Modifier("Ga Dai (More Sweet)", "assets/", const Video("assets/plain.mp4", "Ga Dai (More Sweet)"));
-const KOSONG = const Modifier("Kosong (No Sugar)", "assets/", const Video("assets/plain.mp4", "Kosong (No Sugar)"));
+const LESS_SWEET = const Modifier("Siew Dai (Less Sweet)", "assets/", const Video("assets/Siew Dai.mp4", "Siew Dai (Less Sweet)"));
+const MORE_SWEET = const Modifier("Ga Dai (More Sweet)", "assets/", const Video("assets/Ga Dai.mp4", "Ga Dai (More Sweet)"));
+const KOSONG = const Modifier("Kosong (No Sugar)", "assets/", const Video("assets/Kosong.mp4", "Kosong (No Sugar)"));
 
 const SWEETNESS = [NORMAL, LESS_SWEET, MORE_SWEET, KOSONG];
 
-const THICK = const Modifier("Gao (Thicker Brew)", "assets/plain.mp4", const Video("assets/plain.mp4", "Gao (Thicker Brew)"));
-const LIGHT = const Modifier("Poh (Lighter Brew)", "assets/plain.mp4", const Video("assets/plain.mp4", "Poh (Lighter Brew)"));
+const THICK = const Modifier("Gao (Thicker Brew)", "assets/", const Video("assets/Gao.mp4", "Gao (Thicker Brew)"));
+const LIGHT = const Modifier("Poh (Lighter Brew)", "assets/", const Video("assets/Poh.mp4", "Poh (Lighter Brew)"));
 
 const THICKNESS = [NORMAL, THICK, LIGHT];
 
