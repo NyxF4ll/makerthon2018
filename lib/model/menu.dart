@@ -33,8 +33,8 @@ const ICED = const Modifier("Iced (Peng)", "assets/", const Video("assets/Iced.m
 
 const TEMP = [HOT, ICED];
 
-const LESS_SWEET = const Modifier("Siew Dai (Less Sweet)", "assets/", const Video("assets/Siew Dai.mp4", "Siew Dai (Less Sweet)"));
-const MORE_SWEET = const Modifier("Ga Dai (More Sweet)", "assets/", const Video("assets/Ga Dai.mp4", "Ga Dai (More Sweet)"));
+const LESS_SWEET = const Modifier("Siew Dai (Less Sweet)", "assets/", const Video("assets/SiewDai.mp4", "Siew Dai (Less Sweet)"));
+const MORE_SWEET = const Modifier("Ga Dai (More Sweet)", "assets/", const Video("assets/GaDai.mp4", "Ga Dai (More Sweet)"));
 const KOSONG = const Modifier("Kosong (No Sugar)", "assets/", const Video("assets/Kosong.mp4", "Kosong (No Sugar)"));
 
 const SWEETNESS = [NORMAL, LESS_SWEET, MORE_SWEET, KOSONG];
