@@ -50,8 +50,8 @@ class _OrderCustomizationViewState extends State<OrderCustomizationView> {
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Colors.black87,
-        title: new Text('Drinks Menu'),
-        centerTitle: true,
+        title: new Text('Customisations'),
+        centerTitle: false,
       ),
 
       body: Center(
@@ -67,23 +67,25 @@ class _OrderCustomizationViewState extends State<OrderCustomizationView> {
                     Container(color: Color.fromRGBO(120, 120, 120, 1), height: 5),
 
                     Container(
-                      height: 100,
-                      alignment: Alignment.center,
-                      child: Text("Options",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30.0,
-                        ),
-                      )
-                    ),
-
-                    Container(color: Color.fromRGBO(120, 120, 120, 1), height: 5),
-
-                    Container(
                       padding: EdgeInsets.all(20),
-                      child: Container(child: temperatureWidget, height: 200)
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            height: 30,
+                            alignment: Alignment.center,
+                            padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                            child: Text("Temperature",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 25.0,
+                              ),
+                            )
+                          ),
+                          Container(child: temperatureWidget, height: 300),
+                        ],
+                      ),
                     ),
-
+                    
                     Container(color: Color.fromRGBO(120, 120, 120, 1), height: 5),
 
                     Container(
@@ -91,9 +93,9 @@ class _OrderCustomizationViewState extends State<OrderCustomizationView> {
                       child: Column(
                         children: <Widget>[
                           Container(
-                            height: 80,
-                            alignment: Alignment.centerLeft,
-                            padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
+                            height: 30,
+                            alignment: Alignment.center,
+                            padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                             child: Text("Sugar Level",
                               style: TextStyle(
                                 color: Colors.white,
@@ -101,7 +103,7 @@ class _OrderCustomizationViewState extends State<OrderCustomizationView> {
                               ),
                             )
                           ),
-                          Container(child: sweetnessWidget, height: 400),
+                          Container(child: sweetnessWidget, height: (screenHeight-110)/3),
                         ],
                       ),
                     ),
@@ -113,9 +115,9 @@ class _OrderCustomizationViewState extends State<OrderCustomizationView> {
                       child: Column(
                         children: <Widget>[
                           Container(
-                            height: 80,
-                            alignment: Alignment.centerLeft,
-                            padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
+                            height: 30,
+                            alignment: Alignment.center,
+                            padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                             child: Text("Intensity",
                               style: TextStyle(
                                 color: Colors.white,
@@ -123,7 +125,7 @@ class _OrderCustomizationViewState extends State<OrderCustomizationView> {
                               ),
                             )
                           ),
-                          Container(child: thicknessWidget, height: 300),
+                          Container(child: thicknessWidget, height: (screenHeight-110)/6),
                         ],
                       ),
                     ),
@@ -132,7 +134,7 @@ class _OrderCustomizationViewState extends State<OrderCustomizationView> {
 
                     Container(
                       color: Colors.orange,
-                      height: 100,
+                      height:  (screenHeight-110)/6,
                       alignment: Alignment.center,
                       child: InkWell(
                         onTap: () => AppNavigator.of(context).submitOrder(assembledOrder),
