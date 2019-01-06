@@ -4,6 +4,7 @@ import 'package:makerthon2018/app_navigator.dart';
 import 'package:makerthon2018/model/menu.dart';
 import 'package:makerthon2018/model/order.dart';
 import 'package:makerthon2018/view/customization_menu_widget.dart';
+import 'package:makerthon2018/view/video_display_view.dart';
 
 class OrderCustomizationView extends StatefulWidget {
 
@@ -20,14 +21,19 @@ class _OrderCustomizationViewState extends State<OrderCustomizationView> {
 
   final Order _order;
 
-  CustomizationMenuWidget temperatureWidget = CustomizationMenuWidget(TEMP);
-  CustomizationMenuWidget sweetnessWidget = CustomizationMenuWidget(SWEETNESS);
-  CustomizationMenuWidget thicknessWidget = CustomizationMenuWidget(THICKNESS);
+  CustomizationMenuWidget temperatureWidget = CustomizationMenuWidget(TEMP, "Temperature");
+  CustomizationMenuWidget sweetnessWidget = CustomizationMenuWidget(SWEETNESS, "Sugar Level");
+  CustomizationMenuWidget thicknessWidget = CustomizationMenuWidget(THICKNESS, "Intensity");
 
   _OrderCustomizationViewState(this._order);
 
-  Order get assembledOrder => _order
-    .withModifiers(
+  @override
+  Widget build(BuildContext context) {
+    MediaQueryData mediaQuery = MediaQuery.of(context);
+    double screenWidth = mediaQuery.size.width;
+    double screenHeight = mediaQuery.size.height;
+    
+    var getAssembledOrder = () => _order.withModifiers(
       [
         temperatureWidget.modifier, 
         sweetnessWidget.modifier, 
@@ -35,11 +41,8 @@ class _OrderCustomizationViewState extends State<OrderCustomizationView> {
       ]
     );
 
-  @override
-  Widget build(BuildContext context) {
-    MediaQueryData mediaQuery = MediaQuery.of(context);
-    double screenWidth = mediaQuery.size.width;
-    double screenHeight = mediaQuery.size.height;
+    var getAssembledVideo = () => getAssembledOrder.call().videos;
+
 
     var mainImage = Image.asset(
       _order.image,
@@ -56,103 +59,72 @@ class _OrderCustomizationViewState extends State<OrderCustomizationView> {
 
       body: Center(
         child: Container(
-          color: Color.fromRGBO(20, 20, 20, 1),
+          color: Color.fromRGBO(240, 240, 240, 1),
           height: screenHeight,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                child: ListView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  
                   children: <Widget>[
-                    Container(color: Color.fromRGBO(120, 120, 120, 1), height: 5),
+                    Container(),
 
-                    Container(
-                      padding: EdgeInsets.all(20),
-                      child: Column(
-                        children: <Widget>[
-                          Container(
-                            height: 30,
-                            alignment: Alignment.center,
-                            padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                            child: Text("Temperature",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 25.0,
-                              ),
-                            )
-                          ),
-                          Container(child: temperatureWidget, height: 300),
-                        ],
-                      ),
-                    ),
-                    
-                    Container(color: Color.fromRGBO(120, 120, 120, 1), height: 5),
+                    temperatureWidget,
 
-                    Container(
-                      padding: EdgeInsets.all(20),
-                      child: Column(
-                        children: <Widget>[
-                          Container(
-                            height: 30,
-                            alignment: Alignment.center,
-                            padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                            child: Text("Sugar Level",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 25.0,
-                              ),
-                            )
-                          ),
-                          Container(child: sweetnessWidget, height: (screenHeight-110)/3),
-                        ],
-                      ),
-                    ),
+                    sweetnessWidget,
 
-                    Container(color: Color.fromRGBO(120, 120, 120, 1), height: 5),
+                    thicknessWidget,
 
-                    Container(
-                      padding: EdgeInsets.all(20),
-                      child: Column(
-                        children: <Widget>[
-                          Container(
-                            height: 30,
-                            alignment: Alignment.center,
-                            padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                            child: Text("Intensity",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 25.0,
-                              ),
-                            )
-                          ),
-                          Container(child: thicknessWidget, height: (screenHeight-110)/6),
-                        ],
-                      ),
-                    ),
-
-                    Container(color: Color.fromRGBO(120, 120, 120, 1), height: 5),
-
-                    Container(
-                      color: Colors.orange,
-                      height:  (screenHeight-110)/6,
-                      alignment: Alignment.center,
-                      child: InkWell(
-                        onTap: () => AppNavigator.of(context).submitOrder(assembledOrder),
-                        child: Text("Convert to Sign Language",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 25.0,
-                          ),
-                        )
-                      ),
-                    )
+                    Container()
                   ]
                 ),
-                width: screenWidth/2 - 4,
+                width: screenWidth/2 + 78,
               ),
               Container(
-                width: screenWidth/2 - 4,
-                child: mainImage
+                width: screenWidth/2 - 78,
+                child: Column(
+                  children: <Widget>[
+                    VideoDisplayView(getAssembledVideo),
+                    Container(
+                      child: new Row(children: <Widget>[
+                        InkWell(
+                          child: Container(
+                            color: Colors.lime[600],
+                            alignment: Alignment.center,
+                            height: 80,
+                            width: screenWidth / 2 - 182,
+                            child: Text("Notify Seller",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 28,
+                                fontWeight: FontWeight.w400
+                              ),
+                            )
+                          ),
+                          onTap: () async {
+                            return;
+                          }, 
+                        ),
+                        Container(
+                          width: 4,
+                          color: Colors.black87,
+                        ),
+                        InkWell(
+                          child: Container(
+                            color: Colors.lime[600],
+                            height: 80,
+                            width: 100,
+                            child: Icon(Icons.close, color: Colors.white, size: 45)  
+                          ),
+                          onTap: () => AppNavigator.of(context).returnToMenu(), 
+                        ),
+                      ]),
+                      height: 80,
+                    )
+                  ],
+                )
               ),
             ]
           )
