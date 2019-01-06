@@ -18,11 +18,11 @@ class Order {
   Order withoutModifiers() =>
     Order(this._drinkName, this._drinkGesture, [], this._image);
 
-  List<Video> get videos => _drinkGesture;
-    //(_drinkGesture + _modifiers.map((m) => m.video)).toList();
+  List<Video> get videos =>
+    (_drinkGesture + _modifiers.map((m) => m.video).toList()).toList();
 
   String get image => _image;
 
   String get name => _drinkName + 
-    _modifiers.map((m) => m.name).fold("", (a,b) => a + b);
+    _modifiers.map((m) => m.name).fold("", (a,b) => a + " " + b);
 }

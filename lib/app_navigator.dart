@@ -16,12 +16,12 @@ class AppNavigator {
       ModalRoute.withName(Navigator.defaultRouteName));
   }
 
-  void submitOrder(Order order) {
-    MaterialPageRoute videoViewRoute =
-      MaterialPageRoute(builder: (_context) => VideoDisplayView(order.videos));
+  // void submitOrder(Order order) {
+  //   MaterialPageRoute videoViewRoute =
+  //     MaterialPageRoute(builder: (_context) => VideoDisplayView(order.videos));
 
-    Navigator.of(_context).push(videoViewRoute);
-  }
+  //   Navigator.of(_context).push(videoViewRoute);
+  // }
 
   void selectDrink(Order order) {
     MaterialPageRoute customizationViewRoute =
