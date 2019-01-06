@@ -1,34 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:makerthon2018/model/menu.dart';
 import 'package:makerthon2018/app_navigator.dart';
-import 'dart:ui';
-
-// Widget build(BuildContext context) {
-//   return new Scaffold(
-//     body: new ListView.builder(
-//       itemCount: MENU == null ? 0 : MENU.length,
-//       itemBuilder: (BuildContext context, int index) {
-//         return new GestureDetector(
-//           onTap: () => AppNavigator.of(context).submitOrder(MENU[index]),
-//           child: new Column (
-//             children: <Widget>[
-//               new Image.asset('assets/image/image${index + 1}.jpg'),
-//               new Container(
-//                 child: new Text(MENUSTRING[index], style: new TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
-//               )
-//             ],
-//             ),
-//         );
-//       },
-//     ),
-//   );
-// }
-
-List<Widget> list = <Widget>[
-  ListTile(
-    title: Text('KOPI', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 100.0)),
-  )
-];
 
 class MenuView extends StatelessWidget {
   @override
@@ -37,6 +10,39 @@ class MenuView extends StatelessWidget {
     double screenWidth = mediaQuery.size.width;
     double screenHeight = mediaQuery.size.height;
 
+    var menuColumn = GridView.builder(
+      itemCount: 6, 
+      gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2, 
+        childAspectRatio: (screenWidth * 0.844)/(screenHeight)),
+      itemBuilder: (context, index) => new Container(
+      padding: EdgeInsets.fromLTRB(0, 0, 5, 5),
+      color: Color.fromRGBO(80, 80, 80, 1),
+      child: new InkWell(
+        child: Column(
+          children: <Widget>[
+            AspectRatio(
+              aspectRatio: 2,
+              child: Image.asset(MENU[index].image,
+                fit: BoxFit.fitWidth,
+              )
+            ),
+            Container(
+              color: Colors.black87,
+              constraints: BoxConstraints.tightFor(height: screenHeight/13),
+              child: Center(
+                child: Text(MENU[index].name, style: TextStyle(color: Colors.white, fontSize: 30.0)),
+              ),
+            )
+          ]),
+        onTap: () {
+          print(MENU[index].name);
+          AppNavigator.of(context).selectDrink(MENU[index]);
+        })
+      )
+    );
+
+    /*
     var menuColumn = ListView.builder(itemCount: 6, itemBuilder: (context, index) => new Container(
       height: 200,
       padding: EdgeInsets.fromLTRB(0, 0, 0, 4),
@@ -60,14 +66,13 @@ class MenuView extends StatelessWidget {
           ]),
         onTap: () {
           print(MENU[index].name);
-          AppNavigator.of(context).submitOrder(MENU[index]);
+          AppNavigator.of(context).selectDrink(MENU[index]);
         })
       )
     );
-
-
+    */
     var mainImage = Image.asset(
-      'assets/images/background.jpg',
+      'assets/background.jpg',
       height: screenHeight,
       fit: BoxFit.fitHeight,
     );
