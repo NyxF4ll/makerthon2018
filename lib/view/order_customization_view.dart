@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:makerthon2018/app_navigator.dart';
 import 'package:makerthon2018/model/menu.dart';
 import 'package:makerthon2018/model/order.dart';
@@ -91,11 +93,11 @@ class _OrderCustomizationViewState extends State<OrderCustomizationView> {
                       child: new Row(children: <Widget>[
                         InkWell(
                           child: Container(
-                            color: Colors.lime[600],
+                            color: Colors.red[300],
                             alignment: Alignment.center,
                             height: 80,
                             width: screenWidth / 2 - 182,
-                            child: Text("Notify Seller",
+                            child: Text("Call Staff",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 28,
@@ -104,6 +106,16 @@ class _OrderCustomizationViewState extends State<OrderCustomizationView> {
                             )
                           ),
                           onTap: () async {
+                            Firestore.instance.collection('vibratedata').document('ATAa7r5a1psc7FCjZvxf')
+                              .setData({"vibrate": true});
+
+                            Future.delayed(Duration(seconds: 10),
+                              () {
+                                Firestore.instance.collection('vibratedata').document('ATAa7r5a1psc7FCjZvxf')
+                                  .setData({"vibrate": false});
+                              }
+                            );
+
                             return;
                           }, 
                         ),
@@ -113,7 +125,7 @@ class _OrderCustomizationViewState extends State<OrderCustomizationView> {
                         ),
                         InkWell(
                           child: Container(
-                            color: Colors.lime[600],
+                            color: Colors.red[300],
                             height: 80,
                             width: 100,
                             child: Icon(Icons.close, color: Colors.white, size: 45)  
