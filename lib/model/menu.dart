@@ -26,23 +26,23 @@ const MENU = [KOPI_STANDARD, KOPI_C, KOPI_O, TEA_STANDARD, TEA_C, TEA_O];
 
 // Modifiers
 
-const NORMAL = const Modifier("Normal", "assets/tea-o.jpg", const Video(null, "Normal"));
-
-const HOT = const Modifier("Hot", "assets/hot.jpg", const Video("assets/Hot.mp4", "Hot"));
-const ICED = const Modifier("Iced (Peng)", "assets/cold.jpg", const Video("assets/Iced.mp4", "Iced (Peng)"));
+const HOT = const Modifier("Hot", "assets/hot.png", const Video("assets/Hot.mp4", "Hot"));
+const ICED = const Modifier("Iced (Peng)", "assets/cold.png", const Video("assets/Iced.mp4", "Iced (Peng)"));
 
 const TEMP = [HOT, ICED];
 
-const LESS_SWEET = const Modifier("Siew Dai (Less Sweet)", "assets/tea-o.jpg", const Video("assets/Siew Dai.mp4", "Siew Dai (Less Sweet)"));
-const MORE_SWEET = const Modifier("Ga Dai (More Sweet)", "assets/tea-o.jpg", const Video("assets/Ga Dai.mp4", "Ga Dai (More Sweet)"));
-const KOSONG = const Modifier("Kosong (No Sugar)", "assets/tea-o.jpg", const Video("assets/Kosong.mp4", "Kosong (No Sugar)"));
+const LESS_SWEET = const Modifier("Siew Dai (Less Sweet)", "assets/50%.png", const Video("assets/Siewdai.mp4", "Siew Dai (Less Sweet)"));
+const NORMAL_SWEET = const Modifier("Normal", "assets/100%.png", null);
+const MORE_SWEET = const Modifier("Ga Dai (More Sweet)", "assets/150%.png", const Video("assets/Gadai.mp4", "Ga Dai (More Sweet)"));
+const KOSONG = const Modifier("Kosong (No Sugar)", "assets/0%.png", const Video("assets/Kosong.mp4", "Kosong (No Sugar)"));
 
 
-const SWEETNESS = [KOSONG, LESS_SWEET, NORMAL, MORE_SWEET];
+const SWEETNESS = [KOSONG, LESS_SWEET, NORMAL_SWEET, MORE_SWEET];
 
-const THICK = const Modifier("Gao (Thicker Brew)", "assets/tea-o.jpg", const Video("assets/Gao.mp4", "Gao (Thicker Brew)"));
-const LIGHT = const Modifier("Poh (Lighter Brew)", "assets/tea-o.jpg", const Video("assets/Poh.mp4", "Poh (Lighter Brew)"));
+const THICK = const Modifier("Gao (Thicker Brew)", "assets/gao.png", const Video("assets/Gao.mp4", "Gao (Thicker Brew)"));
+const LIGHT = const Modifier("Poh (Lighter Brew)", "assets/poh.png", const Video("assets/Poh.mp4", "Poh (Lighter Brew)"));
+const NORMAL_INTENSITY = const Modifier("Normal", "assets/normal.png", null);
 
-const THICKNESS = [LIGHT, NORMAL, THICK];
+const THICKNESS = [LIGHT, NORMAL_INTENSITY, THICK];
 
 const MOFIFIERS = [TEMP, SWEETNESS, THICKNESS];
